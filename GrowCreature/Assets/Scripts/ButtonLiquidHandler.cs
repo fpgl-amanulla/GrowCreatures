@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public enum ButtonLiquidType
+public enum LiquidType
 {
     Cute,
     Love
@@ -9,5 +10,5 @@ public enum ButtonLiquidType
 
 public class ButtonLiquidHandler : MonoBehaviour
 {
-    public ButtonLiquidType buttonLiquidType;
+    [FormerlySerializedAs("buttonLiquidType")] public LiquidType liquidType;
 }
