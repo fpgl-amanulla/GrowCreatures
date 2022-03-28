@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fetus3
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 8b9a9f1b762d8473aa797d3195733ab2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 91ebd740ea98541a494b7a6aeba61d22, type: 2}
     - target: {fileID: 6754014392523748795, guid: 8b9a9f1b762d8473aa797d3195733ab2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
