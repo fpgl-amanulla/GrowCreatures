@@ -22,4 +22,4 @@ MonoBehaviour:
   - fetusState: 3
     fetusPrefab: {fileID: 7634803634394978516, guid: 197af8b186bc240b3a82b8913b8c602d, type: 3}
   - fetusState: 4
-    fetusPrefab: {fileID: 9165294077526238385, guid: 2c3ea0ea05e6448eaa2acce12e922586, type: 3}
+    fetusPrefab: {fileID: 361680815821867644, guid: 966ce2f10d52d40ebab1900eaf287635, type: 3}

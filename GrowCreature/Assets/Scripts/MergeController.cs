@@ -71,7 +71,7 @@ public class MergeController : MonoBehaviour
             if (i == 4)
             {
                 panelGrowComplete.SetActive(true);
-                fetus.transform.rotation = Quaternion.Euler(0, 250, 0);
+                fetus.transform.rotation = Quaternion.Euler(0, 150, 0);
                 yield break;
             }
 
