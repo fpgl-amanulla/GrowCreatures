@@ -9,7 +9,7 @@ public class LiquidContainerController : MonoBehaviour
     public LiquidDummy liquidDummyPrefab;
 
     private bool startPouring = false;
-    private static readonly int FillAmount = Shader.PropertyToID("_FillAmount");
+    public static readonly int FillAmount = Shader.PropertyToID("_FillAmount");
 
     private List<LiquidDummy> allLiquidDummy = new List<LiquidDummy>();
     private LiquidDummy _liquidDummy;

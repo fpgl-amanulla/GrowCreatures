@@ -31,13 +31,13 @@ public class FetusGeneratorController : MonoBehaviour
         if (isPointerDown)
         {
             Transform pouringPoint;
-            Quaternion flaskEndQuaternion = Quaternion.Euler(0, 0, -70);
+            Quaternion flaskEndQuaternion = Quaternion.Euler(0, 0, -90);
             if (_conicalFlask.pouringPointType == PouringPointType.Left)
                 pouringPoint = pouringPointLeft;
             else
             {
                 pouringPoint = pouringPointRight;
-                flaskEndQuaternion = Quaternion.Euler(0, 0, 70);
+                flaskEndQuaternion = Quaternion.Euler(0, 0, 90);
             }
 
             PouringHelper.GoToPour(_conicalFlask, pouringPoint, flaskEndQuaternion, OnPouringPointReached);
@@ -59,6 +59,6 @@ public class FetusGeneratorController : MonoBehaviour
     private void OnPouringPointReached()
     {
         //Pour Liquid
-        liquidContainerController.StartPourLiquid(true,_conicalFlask);
+        liquidContainerController.StartPourLiquid(true, _conicalFlask);
     }
 }
