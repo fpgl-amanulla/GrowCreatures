@@ -28,8 +28,8 @@ public class CameraBoundaries : MonoBehaviour
             screenBounds = _camera.ScreenToWorldPoint(screenPosition);
         }
 
-        objectWidth = transform.GetComponent<MeshRenderer>().bounds.extents.x; //extents = size of width / 2
-        objectHeight = transform.GetComponent<MeshRenderer>().bounds.extents.y; //extents = size of height / 2
+        objectWidth = transform.GetComponentInChildren<Renderer>().bounds.extents.x; //extents = size of width / 2
+        objectHeight = transform.GetComponentInChildren<Renderer>().bounds.extents.y; //extents = size of height / 2
     }
 
     private void LateUpdate()

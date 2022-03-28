@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0272522b3b3f4b95ae66a9eb14737a2e, type: 3}
+  m_Name: FetusSet_1
+  m_EditorClassIdentifier: 
+  AllFetusInfo:
+  - fetusState: 0
+    fetusPrefab: {fileID: 6761662595231065785, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
+  - fetusState: 1
+    fetusPrefab: {fileID: 2035846966198362139, guid: a79ccc245142f4af39b570c165edf6b5, type: 3}
+  - fetusState: 2
+    fetusPrefab: {fileID: 1745042591017657030, guid: fe3d1c1c17b0142f7adc2e0f109ed19b, type: 3}
+  - fetusState: 3
+    fetusPrefab: {fileID: 7634803634394978516, guid: 197af8b186bc240b3a82b8913b8c602d, type: 3}

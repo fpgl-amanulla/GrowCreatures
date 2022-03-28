@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DragToMove : MonoBehaviour
+public abstract class DragToMove : MonoBehaviour
 {
     private Camera _camera;
 
-    private bool isDragging = false;
+    protected bool isDragging = false;
     private void Start()
     {
         _camera = Camera.main;
@@ -24,11 +21,5 @@ public class DragToMove : MonoBehaviour
     private void OnMouseUp()
     {
         isDragging = false;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(!isDragging) return;
-        Debug.Log(collision.gameObject.name);
     }
 }
