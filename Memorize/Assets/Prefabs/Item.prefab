@@ -136,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   imgIcon: {fileID: 878661507796362105}
+  imgIconBg: {fileID: 878661507291068683}
+  btnItem: {fileID: 878661507291068677}
 --- !u!1 &878661507796362111
 GameObject:
   m_ObjectHideFlags: 0

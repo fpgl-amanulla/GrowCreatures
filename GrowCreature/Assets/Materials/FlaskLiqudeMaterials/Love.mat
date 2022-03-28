@@ -21,7 +21,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _FillAmount: 0.5
-    - _Rim: 0.05
+    - _Rim: 0
     - _RimPower: 2
     - _WobbleX: 0
     - _WobbleZ: 0

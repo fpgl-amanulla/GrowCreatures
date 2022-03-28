@@ -5,7 +5,8 @@ using UnityEngine.Serialization;
 public enum LiquidType
 {
     Cute,
-    Love
+    Love,
+    Strength
 }
 
 public class ButtonLiquidHandler : MonoBehaviour

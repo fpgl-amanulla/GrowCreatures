@@ -71,8 +71,16 @@ public class LiquidContainerController : MonoBehaviour
         _liquidDummy.LiquidType = conicalFlask.liquidType;
         _liquidRenderer = _liquidDummy.GetComponent<Renderer>();
         _liquidRenderer.material = conicalFlask.liquidRenderer.material;
+        int index = allLiquidDummy.Count - 3;
+        if (index >= 0)
+        {
+            allLiquidDummy[index].GetComponent<Renderer>().material
+                .SetColor(TopColor, _liquidRenderer.material.GetColor(TopColor));
+        }
+
         _liquidRenderer.material.SetFloat(FillAmount, fillAmount);
-        if (previousRenderer!=null) previousRenderer.material.SetColor(TopColor,_liquidRenderer.material.GetColor(TopColor));
+        if (previousRenderer != null)
+            previousRenderer.material.SetColor(TopColor, _liquidRenderer.material.GetColor(TopColor));
 
         startPouring = true;
     }
