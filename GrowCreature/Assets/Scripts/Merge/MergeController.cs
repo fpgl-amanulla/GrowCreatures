@@ -1,5 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
 using GrowFetus;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -15,6 +18,10 @@ namespace Merge
         public GameObject panelGrowComplete;
         public Transform fetusHolder;
         public GameObject mergeEffectFX;
+        public GameObject popUpTextPrefab;
+
+        private int currentFetusState = 0;
+        private const int maxFetusState = 4;
 
         private void Awake()
         {
@@ -49,15 +56,22 @@ namespace Merge
             Instantiate(mergeEffectFX, fetus_1.transform.position, Quaternion.identity);
 
             //Merge & instantiate next object
-            GameObject fetus = fetusSetSo.GetNextFetusPrefab(fetus_1.FetusState);
-            InitFetus(fetus, fetus_1.transform.position);
+            GameObject fetusObj = fetusSetSo.GetNextFetusPrefab(fetus_1.FetusState);
+            Fetus fetus = fetusObj.GetComponent<Fetus>();
+            if (fetus.FetusState > currentFetusState)
+            {
+                ShowPopUpText(fetusObj.transform);
+                currentFetusState = fetus.FetusState;
+            }
+
+            InitFetus(fetusObj, fetus_1.transform.position);
 
             //Check for final state
-            if (fetus.GetComponent<Fetus>().FetusState != 4) return;
-            //Complete
+            if (fetus.FetusState < maxFetusState) return;
             btnGenerate.gameObject.SetActive(false);
 
             StartCoroutine(ShowAllState());
+            //Complete
         }
 
         private IEnumerator ShowAllState()
@@ -67,10 +81,10 @@ namespace Merge
             for (int i = 0; i < fetusSetSo.AllFetusInfo.Count; i++)
             {
                 GameObject fetus = fetusSetSo.GetFetusPrefab(i);
-                fetus.GetComponent<Fetus>().enabled = false;
+                fetus.GetComponent<Fetus>().dragEnabled = false;
                 fetus.transform.position = Vector3.zero;
 
-                if (i == 4)
+                if (i == maxFetusState)
                 {
                     panelGrowComplete.SetActive(true);
                     fetus.transform.rotation = Quaternion.Euler(0, 150, 0);
@@ -80,6 +94,20 @@ namespace Merge
                 yield return new WaitForSeconds(1.0f);
                 Destroy(fetus);
             }
+        }
+
+        private readonly List<string> popUpStringList = new List<string>()
+        {
+            "Nice", "Amazing", "Awesome", "Good", "Fabulous"
+        };
+
+        private void ShowPopUpText(Component parent)
+        {
+            GameObject popUpTextObj = Instantiate(popUpTextPrefab, parent.transform);
+            TextMeshPro popUpText = popUpTextObj.GetComponent<TextMeshPro>();
+            popUpText.text = popUpStringList[Random.Range(0, popUpStringList.Count)];
+            popUpText.DOFade(0, 0f);
+            popUpText.DOFade(1, 1.0f).OnComplete(delegate { Destroy(popUpTextObj); });
         }
     }
 }

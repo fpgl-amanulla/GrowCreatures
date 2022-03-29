@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1338326654}
     m_Modifications:
+    - target: {fileID: 3261068222340026776, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
+      propertyPath: m_Drag
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019183747077999094, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6761662595231065784, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -152,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6761662595231065784, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.142
       objectReference: {fileID: 0}
     - target: {fileID: 6761662595231065784, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -193,6 +201,10 @@ PrefabInstance:
     - target: {fileID: 6761662595231065785, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871667503011375810, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
@@ -245,7 +257,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 108, y: 108}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &85711373
 MonoBehaviour:
@@ -278,12 +290,12 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2051133827}
-          m_TargetAssemblyTypeName: ButtonInputHandler, Assembly-CSharp
+          m_TargetAssemblyTypeName: GrowFetus.ButtonInputHandler, Assembly-CSharp
           m_MethodName: OnPointerDown
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 85711373}
-            m_ObjectArgumentAssemblyTypeName: ButtonLiquidHandler, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: GrowFetus.ButtonLiquidHandler, Assembly-CSharp
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
@@ -369,8 +381,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 6c7ee31878c8b43089c7baaa0cdd69eb, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -777,7 +789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 150}
+  m_AnchoredPosition: {x: 0, y: 180}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &277351285
@@ -929,6 +941,119 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3700504570334624278, guid: cc9aa4ca9a0514fa097401691470dd37, type: 3}
   m_PrefabInstance: {fileID: 421036539}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &471208685
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 69341089}
+    m_Modifications:
+    - target: {fileID: 100002, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_Name
+      value: CFX3_Hit_Light_C_Air
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 757df604761b8ef42831192c70ee1099, type: 3}
 --- !u!1 &502010875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,7 +1328,7 @@ Light:
   m_InnerSpotAngle: 21.802082
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1352,7 +1477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &774494562
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1601,7 +1726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &848988900
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2012,7 +2137,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 108, y: 108}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1273724937
 MonoBehaviour:
@@ -2045,12 +2170,12 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2051133827}
-          m_TargetAssemblyTypeName: ButtonInputHandler, Assembly-CSharp
+          m_TargetAssemblyTypeName: GrowFetus.ButtonInputHandler, Assembly-CSharp
           m_MethodName: OnPointerDown
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 1273724937}
-            m_ObjectArgumentAssemblyTypeName: ButtonLiquidHandler, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: GrowFetus.ButtonLiquidHandler, Assembly-CSharp
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
@@ -2136,8 +2261,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2d2d1ff6ec10540ba918a62e94f6a2fc, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2171,7 +2296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1334911952
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2405,6 +2530,8 @@ MonoBehaviour:
   baseContainer: {fileID: 1946248966}
   liquidDummyPrefab: {fileID: 8755925120548673358, guid: a43f4a0cacf604886be101ac330df7f9, type: 3}
   txtCellCreated: {fileID: 124781941}
+  growCellActive: {fileID: 21300000, guid: c1e9ea7a58d9f4990b05beb263d123e1, type: 3}
+  growCellDeActive: {fileID: 21300000, guid: ca846e6c398974a3d90daae2314aae3c, type: 3}
   btnGrowCell: {fileID: 1636046349}
   formulaButtonHolder: {fileID: 277351283}
   cfx_magical_source: {fileID: 198159275772386308}
@@ -2725,7 +2852,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 108, y: 108}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1523477436
 MonoBehaviour:
@@ -2758,12 +2885,12 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2051133827}
-          m_TargetAssemblyTypeName: ButtonInputHandler, Assembly-CSharp
+          m_TargetAssemblyTypeName: GrowFetus.ButtonInputHandler, Assembly-CSharp
           m_MethodName: OnPointerDown
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 1523477436}
-            m_ObjectArgumentAssemblyTypeName: ButtonLiquidHandler, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: GrowFetus.ButtonLiquidHandler, Assembly-CSharp
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
@@ -2849,8 +2976,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e06bb7cf9ae6240c9901440cded8665c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2885,7 +3012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1636046348
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2903,8 +3030,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 100}
+  m_AnchoredPosition: {x: -15, y: 15}
+  m_SizeDelta: {x: 126, y: 92}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1636046349
 MonoBehaviour:
@@ -2945,7 +3072,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1636046350}
   m_OnClick:
     m_PersistentCalls:
@@ -2970,8 +3097,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ca846e6c398974a3d90daae2314aae3c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3036,7 +3163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1867432777
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3427,7 +3554,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 108, y: 108}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2052023946
 MonoBehaviour:
@@ -3493,8 +3620,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c97836987da9f47b7844f93deb4ee46f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3529,12 +3656,12 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2051133827}
-          m_TargetAssemblyTypeName: ButtonInputHandler, Assembly-CSharp
+          m_TargetAssemblyTypeName: GrowFetus.ButtonInputHandler, Assembly-CSharp
           m_MethodName: OnPointerDown
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 2052023950}
-            m_ObjectArgumentAssemblyTypeName: ButtonLiquidHandler, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: GrowFetus.ButtonLiquidHandler, Assembly-CSharp
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
@@ -3586,7 +3713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2113979974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3762,8 +3889,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Choose the mix your Formulas!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
-  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3793,7 +3920,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 16
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3864,7 +3991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1473790369876987224, guid: 4f77989634f1349a59591d1b1f60c936, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1473790369876987224, guid: 4f77989634f1349a59591d1b1f60c936, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3920,6 +4047,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f77989634f1349a59591d1b1f60c936, type: 3}
+--- !u!1001 &3476678034298231471
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3476678034883726679, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476678034883726679, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476678034883726679, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476678034883726679, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476678034883726679, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476678034883726679, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476678034883726679, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476678034883726679, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476678034883726679, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476678034883726679, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476678034883726679, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476678034883726683, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+      propertyPath: m_Name
+      value: QuadBackGround
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 646305624382378581, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: b10083b6f4ada4cd1a28ca938525d92a, type: 3}
 --- !u!1001 &3805660646170503405
 PrefabInstance:
   m_ObjectHideFlags: 0

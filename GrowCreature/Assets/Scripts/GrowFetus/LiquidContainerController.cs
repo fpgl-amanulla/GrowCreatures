@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 namespace GrowFetus
 {
@@ -13,6 +14,8 @@ namespace GrowFetus
         public LiquidDummy liquidDummyPrefab;
 
         [Header("UI Components")] public GameObject txtCellCreated;
+        public Sprite growCellActive;
+        public Sprite growCellDeActive;
         public Button btnGrowCell;
         public GameObject formulaButtonHolder;
 
@@ -32,7 +35,22 @@ namespace GrowFetus
 
         private void Start()
         {
+            ActiveGrowCellBtn(false);
             btnGrowCell.onClick.AddListener(GrowCellCallBack);
+        }
+
+        private void ActiveGrowCellBtn(bool status)
+        {
+            if (!status)
+            {
+                btnGrowCell.image.sprite = growCellDeActive;
+                btnGrowCell.interactable = false;
+            }
+            else
+            {
+                btnGrowCell.image.sprite = growCellActive;
+                btnGrowCell.interactable = true;
+            }
         }
 
         private void GrowCellCallBack()
@@ -63,6 +81,7 @@ namespace GrowFetus
             cfx_magical_source.gameObject.SetActive(false);
             DeactivateAllLiquidDummy();
             txtCellCreated.SetActive(true);
+            ActiveGrowCellBtn(true);
             btnGrowCell.gameObject.SetActive(true);
         }
 

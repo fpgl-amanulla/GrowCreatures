@@ -15,11 +15,16 @@ MonoBehaviour:
   AllFetusInfo:
   - fetusState: 0
     fetusPrefab: {fileID: 6761662595231065785, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
+    mainTexture2D: {fileID: 2800000, guid: f893359564e004fd3b653be3c4ac9250, type: 3}
   - fetusState: 1
     fetusPrefab: {fileID: 2035846966198362139, guid: a79ccc245142f4af39b570c165edf6b5, type: 3}
+    mainTexture2D: {fileID: 2800000, guid: 09ad293b6039740c28160d20524832b3, type: 3}
   - fetusState: 2
     fetusPrefab: {fileID: 1745042591017657030, guid: fe3d1c1c17b0142f7adc2e0f109ed19b, type: 3}
+    mainTexture2D: {fileID: 2800000, guid: 3df955ae620fc4cba86f5dc6ed77f844, type: 3}
   - fetusState: 3
     fetusPrefab: {fileID: 7634803634394978516, guid: 197af8b186bc240b3a82b8913b8c602d, type: 3}
+    mainTexture2D: {fileID: 2800000, guid: 6abc3b47c217e48da8f16f7a723d4460, type: 3}
   - fetusState: 4
     fetusPrefab: {fileID: 361680815821867644, guid: 966ce2f10d52d40ebab1900eaf287635, type: 3}
+    mainTexture2D: {fileID: 2800000, guid: fa250aa93e1482d44814616c3feff82e, type: 3}
