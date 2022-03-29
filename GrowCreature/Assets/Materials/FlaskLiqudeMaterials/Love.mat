@@ -22,12 +22,12 @@ Material:
     m_Floats:
     - _FillAmount: 0.5
     - _Rim: 0
-    - _RimPower: 2
+    - _RimPower: 1
     - _WobbleX: 0
     - _WobbleZ: 0
     m_Colors:
     - _Colour: {r: 0, g: 0.31532955, b: 0.9716981, a: 1}
-    - _FoamColor: {r: 0.2901961, g: 0.67058825, b: 0.98039216, a: 1}
+    - _FoamColor: {r: 0, g: 0.3137255, b: 0.972549, a: 1}
     - _RimColor: {r: 0.2901961, g: 0.67058825, b: 0.98039216, a: 1}
     - _TopColor: {r: 0, g: 0.40784314, b: 0.7254902, a: 1}
   m_BuildTextureStacks: []

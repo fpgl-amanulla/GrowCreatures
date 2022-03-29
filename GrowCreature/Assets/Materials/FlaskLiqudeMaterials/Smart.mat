@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Strength
+  m_Name: Smart
   m_Shader: {fileID: 4800000, guid: b7e3ac1f7d31f46ed9f47bb84ea7c8ab, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -26,8 +26,8 @@ Material:
     - _WobbleX: 0
     - _WobbleZ: 0
     m_Colors:
-    - _Colour: {r: 1, g: 0.8523774, b: 0.08962262, a: 1}
-    - _FoamColor: {r: 1, g: 0.8509804, b: 0.09019608, a: 1}
-    - _RimColor: {r: 1, g: 0.8509804, b: 0.09019608, a: 1}
-    - _TopColor: {r: 1, g: 0.8509804, b: 0.09019608, a: 1}
+    - _Colour: {r: 0.22921856, g: 0.9528302, b: 0.25752914, a: 1}
+    - _FoamColor: {r: 0.22745098, g: 0.9529412, b: 0.25882354, a: 1}
+    - _RimColor: {r: 0.22745098, g: 0.9529412, b: 0.25882354, a: 1}
+    - _TopColor: {r: 0.22745098, g: 0.9529412, b: 0.25882354, a: 1}
   m_BuildTextureStacks: []

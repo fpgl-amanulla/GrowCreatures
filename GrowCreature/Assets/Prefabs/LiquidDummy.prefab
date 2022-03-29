@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8166556842698551023}
   - component: {fileID: 6159107589390124633}
   - component: {fileID: 5718282026192049304}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LiquidDummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
