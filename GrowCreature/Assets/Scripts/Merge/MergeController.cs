@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -121,5 +122,7 @@ namespace Merge
                 yield return new WaitForSeconds(.05f);
             }
         }
+
+        public void LoadScene(int index) => SceneManager.LoadScene(index);
     }
 }

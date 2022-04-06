@@ -37,6 +37,8 @@ namespace GrowFetus
         {
             ActiveGrowCellBtn(false);
             btnGrowCell.onClick.AddListener(GrowCellCallBack);
+
+            Application.targetFrameRate = 30;
         }
 
         private void ActiveGrowCellBtn(bool status)
@@ -63,7 +65,7 @@ namespace GrowFetus
             if (!startPouring) return;
             if (fillAmount < 0) return;
             //Update value
-            fillAmount -= .001f;
+            fillAmount -= .01f;
             _liquidRenderer.material.SetFloat(FillAmount, fillAmount);
             if (!(fillAmount <= 0)) return;
 

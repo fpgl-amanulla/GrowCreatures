@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 1c630e32bbc4b4f47bb406f769579d4c
+guid: b4feca21ae25f43339568760c2c8d9b4
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 6430240168521028972
-    second: fetus2 beat
+      74: 1886872842766991552
+    second: fetus1 beat
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,8 +35,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: fetus2 beat
-      takeName: fetus2 beat
+      name: fetus1 beat
+      takeName: fetus1 beat
       internalID: 0
       firstFrame: 0
       lastFrame: 30
