@@ -437,10 +437,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee89ae9fe9544f539451f76e7c589b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fetusSetSo: {fileID: 11400000, guid: 5c48ee8dbc0ff4f86b7e247a6fa538cd, type: 2}
+  mergeObjectSetSo: {fileID: 11400000, guid: 5c48ee8dbc0ff4f86b7e247a6fa538cd, type: 2}
   btnGenerate: {fileID: 219266045}
   panelGrowComplete: {fileID: 1481749294}
-  fetusHolder: {fileID: 1800290807}
+  ObjectHolder: {fileID: 1800290807}
   mergeEffectFX: {fileID: 1191832266936051682, guid: b4bd1d2dcd12a4e8ebd89a2bbd257796, type: 3}
   popUpTextPrefab: {fileID: 1485110404314964626, guid: 93a2dc66400cb4d9db5b9d49f6e7df0e, type: 3}
 --- !u!4 &475411640
@@ -862,7 +862,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:

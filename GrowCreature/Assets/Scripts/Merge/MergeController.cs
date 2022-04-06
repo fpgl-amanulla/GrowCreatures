@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using GrowFetus;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -13,15 +13,15 @@ namespace Merge
     {
         public static MergeController Instance;
 
-        public FetusSetSO fetusSetSo;
+        [FormerlySerializedAs("fetusSetSo")] public MergeObjectSetSO mergeObjectSetSo;
         public Button btnGenerate;
         public GameObject panelGrowComplete;
-        public Transform fetusHolder;
+        [FormerlySerializedAs("fetusHolder")] public Transform ObjectHolder;
         public GameObject mergeEffectFX;
         public GameObject popUpTextPrefab;
 
-        private int currentFetusState = 0;
-        private const int maxFetusState = 4;
+        private int currentMergeObjState = 0;
+        private const int maxMergeObjState = 4;
 
         private void Awake()
         {
@@ -33,41 +33,42 @@ namespace Merge
 
         private void Start()
         {
-            fetusSetSo.GetFetusPrefab(0);
+            mergeObjectSetSo.GetMergeObjPrefab(0);
         }
 
         private void GenerateFetus()
         {
-            GameObject fetus = fetusSetSo.GetFetusPrefab(0);
-            InitFetus(fetus, new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-4, 4), 0));
+            GameObject mergeObjPrefab = mergeObjectSetSo.GetMergeObjPrefab(0);
+            InitFetus(mergeObjPrefab, new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-4, 4), 0));
         }
 
-        private void InitFetus(GameObject fetus, Vector3 position)
+        private void InitFetus(GameObject mergeObj, Vector3 position)
         {
-            fetus.transform.SetParent(fetusHolder);
-            fetus.transform.position = position;
+            mergeObj.transform.SetParent(ObjectHolder);
+            mergeObj.transform.position = position;
         }
 
-        public bool IsMergePossible(Fetus fetus_1, Fetus fetus_2) => fetus_1.FetusState == fetus_2.FetusState;
+        public bool IsMergePossible(MergeObject mergeObject1, MergeObject mergeObject2) =>
+            mergeObject1.MergeObjectState == mergeObject2.MergeObjectState;
 
-        public void MergeObject(Fetus fetus_1)
+        public void MergeObject(MergeObject mergeObject1)
         {
             //Play Merge Effect
-            Instantiate(mergeEffectFX, fetus_1.transform.position, Quaternion.identity);
+            Instantiate(mergeEffectFX, mergeObject1.transform.position, Quaternion.identity);
 
             //Merge & instantiate next object
-            GameObject fetusObj = fetusSetSo.GetNextFetusPrefab(fetus_1.FetusState);
-            Fetus fetus = fetusObj.GetComponent<Fetus>();
-            if (fetus.FetusState > currentFetusState)
+            GameObject mergeObj = mergeObjectSetSo.GetNextMergeObjPrefab(mergeObject1.MergeObjectState);
+            MergeObject mergeObject = mergeObj.GetComponent<MergeObject>();
+            if (mergeObject.MergeObjectState > currentMergeObjState)
             {
-                ShowPopUpText(fetusObj.transform);
-                currentFetusState = fetus.FetusState;
+                ShowMergePopUpText(mergeObj.transform);
+                currentMergeObjState = mergeObject.MergeObjectState;
             }
 
-            InitFetus(fetusObj, fetus_1.transform.position);
+            InitFetus(mergeObj, mergeObject1.transform.position);
 
             //Check for final state
-            if (fetus.FetusState < maxFetusState) return;
+            if (mergeObject.MergeObjectState < maxMergeObjState) return;
             btnGenerate.gameObject.SetActive(false);
 
             StartCoroutine(ShowAllState());
@@ -77,14 +78,14 @@ namespace Merge
         private IEnumerator ShowAllState()
         {
             yield return new WaitForSeconds(2.0f);
-            fetusHolder.gameObject.SetActive(false);
-            for (int i = 0; i < fetusSetSo.AllFetusInfo.Count; i++)
+            ObjectHolder.gameObject.SetActive(false);
+            for (int i = 0; i < mergeObjectSetSo.AllMergeObjInfo.Count; i++)
             {
-                GameObject fetus = fetusSetSo.GetFetusPrefab(i);
-                fetus.GetComponent<Fetus>().dragEnabled = false;
+                GameObject fetus = mergeObjectSetSo.GetMergeObjPrefab(i);
+                fetus.GetComponent<MergeObject>().dragEnabled = false;
                 fetus.transform.position = Vector3.zero;
 
-                if (i == maxFetusState)
+                if (i == maxMergeObjState)
                 {
                     panelGrowComplete.SetActive(true);
                     fetus.transform.rotation = Quaternion.Euler(0, 150, 0);
@@ -101,13 +102,24 @@ namespace Merge
             "Nice", "Amazing", "Awesome", "Good", "Fabulous"
         };
 
-        private void ShowPopUpText(Component parent)
+        private void ShowMergePopUpText(Component parent)
         {
             GameObject popUpTextObj = Instantiate(popUpTextPrefab, parent.transform);
             TextMeshPro popUpText = popUpTextObj.GetComponent<TextMeshPro>();
-            popUpText.text = popUpStringList[Random.Range(0, popUpStringList.Count)];
+            StartCoroutine(TypeString(popUpStringList[Random.Range(0, popUpStringList.Count)], popUpText));
             popUpText.DOFade(0, 0f);
             popUpText.DOFade(1, 1.0f).OnComplete(delegate { Destroy(popUpTextObj); });
+        }
+
+        private IEnumerator TypeString(string stringToType, TMP_Text popUpText)
+        {
+            string strPopUp = "";
+            foreach (char item in stringToType)
+            {
+                strPopUp += item;
+                popUpText.text = strPopUp;
+                yield return new WaitForSeconds(.05f);
+            }
         }
     }
 }

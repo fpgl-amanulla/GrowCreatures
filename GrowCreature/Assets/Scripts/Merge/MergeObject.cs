@@ -2,17 +2,17 @@ using UnityEngine;
 
 namespace Merge
 {
-    public class Fetus : DragToMove
+    public class MergeObject : DragToMove
     {
-        public int FetusState { get; set; }
+        public int MergeObjectState { get; set; }
 
         private void OnCollisionEnter(Collision collision)
         {
             if (!isDragging) return;
             MergeController mergeController = MergeController.Instance;
-            Fetus fetus2 = collision.gameObject.GetComponent<Fetus>();
+            MergeObject mergeObj = collision.gameObject.GetComponent<MergeObject>();
         
-            bool isMergePossible = mergeController.IsMergePossible(this, fetus2);
+            bool isMergePossible = mergeController.IsMergePossible(this, mergeObj);
             if(!isMergePossible) return;
         
             mergeController.MergeObject(this);
