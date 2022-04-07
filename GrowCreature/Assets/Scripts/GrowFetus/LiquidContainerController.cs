@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -12,7 +13,9 @@ namespace GrowFetus
         public Transform baseContainer;
         public LiquidDummy liquidDummyPrefab;
 
-        [Header("UI Components")] public GameObject txtCellCreated;
+        [HorizontalLine(color: EColor.Blue)] [Header("UI Components")]
+        public GameObject txtCellCreated;
+
         public Sprite growCellActive;
         public Sprite growCellDeActive;
         public Button btnGrowCell;
@@ -21,7 +24,9 @@ namespace GrowFetus
         private bool startPouring = false;
         private static readonly int FillAmount = Shader.PropertyToID("_FillAmount");
 
-        [Space(20)] public ParticleSystem cfx_magical_source;
+        [HorizontalLine(color: EColor.Blue)] [Space(20)]
+        public ParticleSystem cfx_magical_source;
+
         public GameObject fetus;
 
         private List<LiquidDummy> allLiquidDummy = new List<LiquidDummy>();
