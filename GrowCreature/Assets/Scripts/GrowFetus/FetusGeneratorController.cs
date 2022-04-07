@@ -22,13 +22,13 @@ namespace GrowFetus
         {
             _buttonInputHandler = ButtonInputHandler.Instance;
             _buttonInputHandler.OnButtonPointerChanges += OnButtonPointerChanges;
-            liquidContainerController.OnPourComplete += PourCompleted;
+            liquidContainerController.OnPourComplete += ResetConicalFlaskPos;
         }
 
         private void OnDestroy()
         {
             _buttonInputHandler.OnButtonPointerChanges -= OnButtonPointerChanges;
-            liquidContainerController.OnPourComplete -= PourCompleted;
+            liquidContainerController.OnPourComplete -= ResetConicalFlaskPos;
         }
 
         private void OnButtonPointerChanges(ButtonLiquidHandler buttonLiquidHandler, bool isPointerDown)
@@ -52,7 +52,7 @@ namespace GrowFetus
             {
                 PouringHelper.GoBackOwnPosition(_conicalFlask);
                 //Stop Pouring
-                liquidContainerController.StopPourLiquid();
+                liquidContainerController.StopPourLiquid(_conicalFlask);
             }
         }
 
@@ -62,15 +62,16 @@ namespace GrowFetus
                 .FirstOrDefault();
         }
 
-        private void PourCompleted()
+        private void ResetConicalFlaskPos()
         {
             PouringHelper.GoBackOwnPosition(_conicalFlask);
+            liquidContainerController.StopPourLiquid(_conicalFlask);
         }
 
         private void OnPouringPointReached()
         {
             //Pour Liquid
-            liquidContainerController.StartPourLiquid(true, _conicalFlask);
+            liquidContainerController.StartPourLiquid(_conicalFlask);
         }
     }
 }

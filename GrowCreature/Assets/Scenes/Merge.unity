@@ -437,7 +437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee89ae9fe9544f539451f76e7c589b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mergeObjectSetSo: {fileID: 11400000, guid: 74046eb12479540edba0c550051d86cc, type: 2}
+  assignEditorSO: 0
+  mergeObjectSetSo: {fileID: 11400000, guid: 5c48ee8dbc0ff4f86b7e247a6fa538cd, type: 2}
   btnGenerate: {fileID: 219266045}
   panelGrowComplete: {fileID: 1481749294}
   ObjectHolder: {fileID: 1800290807}

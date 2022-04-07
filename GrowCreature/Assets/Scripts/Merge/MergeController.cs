@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using DG.Tweening;
+using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,7 +16,11 @@ namespace Merge
     {
         public static MergeController Instance;
 
-        [FormerlySerializedAs("fetusSetSo")] public MergeObjectSetSO mergeObjectSetSo;
+        public bool assignEditorSO = false;
+
+        [HorizontalLine()] [FormerlySerializedAs("fetusSetSo")]
+        public MergeObjectSetSO mergeObjectSetSo;
+
         public Button btnGenerate;
         public GameObject panelGrowComplete;
         [FormerlySerializedAs("fetusHolder")] public Transform ObjectHolder;
@@ -34,6 +40,14 @@ namespace Merge
 
         private void Start()
         {
+            if (Application.isEditor)
+            {
+                if (assignEditorSO == false)
+                    mergeObjectSetSo = AppDelegate.GetInstance().selectedMergeObjectSo;
+            }
+            else
+                mergeObjectSetSo = AppDelegate.GetInstance().selectedMergeObjectSo;
+
             mergeObjectSetSo.GetMergeObjPrefab(0);
         }
 
@@ -82,8 +96,8 @@ namespace Merge
             ObjectHolder.gameObject.SetActive(false);
             for (int i = 0; i < mergeObjectSetSo.AllMergeObjInfo.Count; i++)
             {
-                GameObject fetus = mergeObjectSetSo.GetMergeObjPrefab(i);
-                fetus.GetComponent<MergeObject>().dragEnabled = false;
+                GameObject fetus = mergeObjectSetSo.GetMergeObjPrefab(i, false);
+                //fetus.GetComponent<MergeObject>().dragEnabled = false;
                 fetus.transform.position = Vector3.zero;
 
                 if (i == maxMergeObjState)

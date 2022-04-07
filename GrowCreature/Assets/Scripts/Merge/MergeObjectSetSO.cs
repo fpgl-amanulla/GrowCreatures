@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -13,17 +14,26 @@ namespace Merge
         public Texture2D mainTexture2D;
     }
 
-    [CreateAssetMenu(fileName = "MergeObjectSet", menuName = "Create MergeObjectSet", order = 0)]
+    [CreateAssetMenu(fileName = "MergeObjectSet", menuName = "MergeObject/Create MergeObjectSet", order = 0)]
     public class MergeObjectSetSO : ScriptableObject
     {
-        [FormerlySerializedAs("AllFetusInfo")] public List<MergeObjectInfo> AllMergeObjInfo = new List<MergeObjectInfo>();
+        [FormerlySerializedAs("AllFetusInfo")]
+        public List<MergeObjectInfo> AllMergeObjInfo = new List<MergeObjectInfo>();
 
-        public GameObject GetNextMergeObjPrefab(int mergeObjState)
+        public GameObject GetNextMergeObjPrefab(int mergeObjState, bool init = true)
         {
             int stateIndex = mergeObjState + 1;
             GameObject mergeObjPrefab = AllMergeObjInfo[stateIndex].mergeObjPrefab;
             GameObject mergeObjIns = Instantiate(mergeObjPrefab);
-            mergeObjIns.GetComponentInChildren<Renderer>().material.mainTexture = AllMergeObjInfo[stateIndex].mainTexture2D;
+            List<Renderer> renderers = mergeObjIns.GetComponentsInChildren<Renderer>().ToList();
+            for (int i = 0; i < renderers.Count; i++)
+            {
+                renderers[i].material.mainTexture =
+                    AllMergeObjInfo[stateIndex].mainTexture2D;
+            }
+
+            if (!init) return mergeObjIns;
+
             MergeObject mergeObject = mergeObjIns.GetComponent<MergeObject>() == null
                 ? mergeObjIns.AddComponent<MergeObject>()
                 : mergeObjIns.GetComponent<MergeObject>();
@@ -41,9 +51,9 @@ namespace Merge
             return mergeObjIns.gameObject;
         }
 
-        public GameObject GetMergeObjPrefab(int mergeObjState)
+        public GameObject GetMergeObjPrefab(int mergeObjState, bool init = true)
         {
-            return GetNextMergeObjPrefab(mergeObjState - 1);
+            return GetNextMergeObjPrefab(mergeObjState - 1, init);
         }
     }
 }

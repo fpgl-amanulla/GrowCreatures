@@ -23,8 +23,8 @@ MonoBehaviour:
     mergeObjPrefab: {fileID: 1745042591017657030, guid: fe3d1c1c17b0142f7adc2e0f109ed19b, type: 3}
     mainTexture2D: {fileID: 2800000, guid: 42a390f846a9845cd95823b4a04c7034, type: 3}
   - mergeObjState: 3
-    mergeObjPrefab: {fileID: 7634803634394978516, guid: 197af8b186bc240b3a82b8913b8c602d, type: 3}
-    mainTexture2D: {fileID: 2800000, guid: 7a3280612eafa4001b4ebfca87b611b8, type: 3}
+    mergeObjPrefab: {fileID: 7634803634394978516, guid: 232f291a70d8b4468bdec77238cffdcf, type: 3}
+    mainTexture2D: {fileID: 2800000, guid: 383b43dc8a0894dc1a2253a02936a66f, type: 3}
   - mergeObjState: 4
     mergeObjPrefab: {fileID: 4410621841506247, guid: 75913bb2cd4aa734dbc1098948942fd7, type: 3}
     mainTexture2D: {fileID: 2800000, guid: bd6310cb24848bd43ab857365b4ddf62, type: 3}
