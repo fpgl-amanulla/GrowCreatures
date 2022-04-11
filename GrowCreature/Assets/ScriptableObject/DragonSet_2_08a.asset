@@ -13,18 +13,23 @@ MonoBehaviour:
   m_Name: DragonSet_2_08a
   m_EditorClassIdentifier: 
   AllMergeObjInfo:
-  - mergeObjState: 0
+  - productId: 2802
+    mergeObjState: 0
     mergeObjPrefab: {fileID: 6761662595231065785, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
     mainTexture2D: {fileID: 2800000, guid: 4bdb456edd3cf4f8bae6b76676c13b44, type: 3}
-  - mergeObjState: 1
+  - productId: 0
+    mergeObjState: 1
     mergeObjPrefab: {fileID: 2035846966198362139, guid: a79ccc245142f4af39b570c165edf6b5, type: 3}
     mainTexture2D: {fileID: 2800000, guid: d91f6ef22a32140819cb792bbc887697, type: 3}
-  - mergeObjState: 2
+  - productId: 0
+    mergeObjState: 2
     mergeObjPrefab: {fileID: 1745042591017657030, guid: fe3d1c1c17b0142f7adc2e0f109ed19b, type: 3}
     mainTexture2D: {fileID: 2800000, guid: 42a390f846a9845cd95823b4a04c7034, type: 3}
-  - mergeObjState: 3
+  - productId: 0
+    mergeObjState: 3
     mergeObjPrefab: {fileID: 7634803634394978516, guid: 232f291a70d8b4468bdec77238cffdcf, type: 3}
     mainTexture2D: {fileID: 2800000, guid: 383b43dc8a0894dc1a2253a02936a66f, type: 3}
-  - mergeObjState: 4
+  - productId: 0
+    mergeObjState: 4
     mergeObjPrefab: {fileID: 4410621841506247, guid: 75913bb2cd4aa734dbc1098948942fd7, type: 3}
     mainTexture2D: {fileID: 2800000, guid: bd6310cb24848bd43ab857365b4ddf62, type: 3}

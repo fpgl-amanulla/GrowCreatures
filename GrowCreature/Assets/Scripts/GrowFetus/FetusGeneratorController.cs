@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace GrowFetus
@@ -11,7 +12,7 @@ namespace GrowFetus
         public LiquidContainerController liquidContainerController;
         public List<ConicalFlask> allConicalFlask = new List<ConicalFlask>();
 
-        [Header("Pouring Points")] [SerializeField]
+        [Header("Pouring Points")] [HorizontalLine(color: EColor.Green)] [SerializeField]
         private Transform pouringPointLeft;
 
         [SerializeField] private Transform pouringPointRight;

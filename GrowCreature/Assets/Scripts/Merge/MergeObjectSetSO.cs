@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,9 +11,13 @@ namespace Merge
     [Serializable]
     public class MergeObjectInfo
     {
-        [FormerlySerializedAs("fetusState")] public int mergeObjState;
-        [FormerlySerializedAs("fetusPrefab")] public GameObject mergeObjPrefab;
-        public Texture2D mainTexture2D;
+        public int productId;
+        public int mergeObjState;
+
+        [ShowAssetPreview(32, 32)] [FormerlySerializedAs("fetusPrefab")]
+        public GameObject mergeObjPrefab;
+
+        [ShowAssetPreview(32, 32)] public Texture2D mainTexture2D;
     }
 
     [CreateAssetMenu(fileName = "MergeObjectSet", menuName = "MergeObject/Create MergeObjectSet", order = 0)]
@@ -39,8 +45,13 @@ namespace Merge
                 : mergeObjIns.GetComponent<MergeObject>();
             mergeObject.MergeObjectState = AllMergeObjInfo[stateIndex].mergeObjState;
 
+            if (stateIndex == AllMergeObjInfo.Count - 1) return mergeObjIns;
+
             if (mergeObjIns.GetComponent<CameraBoundaries>() == null)
-                mergeObjIns.AddComponent<CameraBoundaries>();
+            {
+                CameraBoundaries cameraBoundaries = mergeObjIns.AddComponent<CameraBoundaries>();
+                cameraBoundaries.SetBound(1.5f);
+            }
 
             if (mergeObjIns.GetComponent<Rigidbody>() == null) mergeObjIns.AddComponent<Rigidbody>();
             Rigidbody rigidbody = mergeObjIns.GetComponent<Rigidbody>();

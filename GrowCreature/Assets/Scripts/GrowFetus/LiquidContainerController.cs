@@ -15,13 +15,11 @@ namespace GrowFetus
         public Transform baseContainer;
         public LiquidDummy liquidDummyPrefab;
 
-        [HorizontalLine(color: EColor.Blue)] [Header("UI Components")]
-        public GameObject txtCellCreated;
-
-        public Sprite growCellActive;
-        public Sprite growCellDeActive;
-        public Button btnGrowCell;
-        public GameObject formulaButtonHolder;
+        [Foldout("UI Components")] public GameObject txtCellCreated;
+        [Foldout("UI Components")] public Sprite growCellActive;
+        [Foldout("UI Components")] public Sprite growCellDeActive;
+        [Foldout("UI Components")] public Button btnGrowCell;
+        [Foldout("UI Components")] public GameObject formulaButtonHolder;
 
         private bool startPouring = false;
         private static readonly int FillAmount = Shader.PropertyToID("_FillAmount");
@@ -34,7 +32,8 @@ namespace GrowFetus
 
         [HorizontalLine(color: EColor.Blue)] public GameObject fetus;
 
-        [HorizontalLine(color: EColor.Blue)] public MergeObjectSetListSO mergeObjectSetListSO;
+        [HorizontalLine(color: EColor.Blue)] [Expandable]
+        public MergeObjectSetListSO mergeObjectSetListSO;
 
         private List<LiquidDummy> allLiquidDummy = new List<LiquidDummy>();
         private LiquidDummy _liquidDummy;
@@ -83,7 +82,7 @@ namespace GrowFetus
 
             Debug.Log("Filled");
             //Select MergeObjectSO
-            AppDelegate.GetInstance().selectedMergeObjectSo = mergeObjectSetListSO.GetRandomMergeObjectSO();
+            AppDelegate.GetInstance().SelectedMergeObjectSo = mergeObjectSetListSO.GetRandomMergeObjectSO();
 
             OnPourComplete?.Invoke();
             cfx_magical_source.gameObject.SetActive(true);
@@ -95,7 +94,7 @@ namespace GrowFetus
             formulaButtonHolder.SetActive(false);
             yield return new WaitForSeconds(3.0f);
 
-            MergeObjectSetSO MergeObjectSo = AppDelegate.GetInstance().selectedMergeObjectSo;
+            MergeObjectSetSO MergeObjectSo = AppDelegate.GetInstance().SelectedMergeObjectSo;
             GameObject mergeObjIns = MergeObjectSo.GetMergeObjPrefab(0, false);
             mergeObjIns.transform.SetParent(fetus.transform);
             mergeObjIns.transform.localPosition = Vector3.zero;

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Island.unity
+    guid: 1995e1edb8fed4dd394800d4d1768628
+  - enabled: 1
     path: Assets/Scenes/GrowFestus.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1

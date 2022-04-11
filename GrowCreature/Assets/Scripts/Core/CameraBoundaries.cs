@@ -1,59 +1,71 @@
 using System;
 using UnityEngine;
 
-public enum MainCameraType
+namespace Core
 {
-    Perspective,
-    Orthographic
-}
-
-public class CameraBoundaries : MonoBehaviour
-{
-    private Camera _camera;
-    private MainCameraType _mainCameraType;
-    private Vector2 screenBounds;
-    private float objectWidth;
-    private float objectHeight;
-
-    private void Start()
+    public enum MainCameraType
     {
-        _camera = Camera.main;
-        _mainCameraType = _camera != null && _camera.orthographic
-            ? MainCameraType.Orthographic
-            : MainCameraType.Perspective;
-
-        if (_camera != null)
-        {
-            Vector3 screenPosition = new Vector3(Screen.width, Screen.height, _camera.transform.position.z);
-            screenBounds = _camera.ScreenToWorldPoint(screenPosition);
-        }
-
-        objectWidth = transform.GetComponentInChildren<Renderer>().bounds.extents.x; //extents = size of width / 2
-        objectHeight = transform.GetComponentInChildren<Renderer>().bounds.extents.y; //extents = size of height / 2
+        Perspective,
+        Orthographic
     }
 
-    private void LateUpdate()
+    public class CameraBoundaries : MonoBehaviour
     {
-        transform.position = GetBoundPosition();
-    }
+        private Camera _camera;
+        private MainCameraType _mainCameraType;
+        private Vector2 screenBounds;
+        private float objectWidth;
+        private float objectHeight;
 
-    private Vector3 GetBoundPosition()
-    {
-        Vector3 viewPos = transform.position;
-        switch (_mainCameraType)
+        private float lowerBound = 0;
+
+        private void Start()
         {
-            case MainCameraType.Perspective:
-                viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x + objectWidth, screenBounds.x * -1 - objectWidth);
-                viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y + objectHeight, screenBounds.y * -1 - objectHeight);
-                break;
-            case MainCameraType.Orthographic:
-                viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
-                viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + objectHeight, screenBounds.y - objectHeight);
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
+            _camera = Camera.main;
+            _mainCameraType = _camera != null && _camera.orthographic
+                ? MainCameraType.Orthographic
+                : MainCameraType.Perspective;
+
+            if (_camera != null)
+            {
+                Vector3 screenPosition = new Vector3(Screen.width, Screen.height, _camera.transform.position.z);
+                screenBounds = _camera.ScreenToWorldPoint(screenPosition);
+            }
+
+            objectWidth = transform.GetComponentInChildren<Renderer>().bounds.extents.x; //extents = size of width / 2
+            objectHeight = transform.GetComponentInChildren<Renderer>().bounds.extents.y; //extents = size of height / 2
         }
 
-        return viewPos;
+        private void LateUpdate()
+        {
+            transform.position = GetBoundPosition();
+        }
+
+        private Vector3 GetBoundPosition()
+        {
+            Vector3 viewPos = transform.position;
+            switch (_mainCameraType)
+            {
+                case MainCameraType.Perspective:
+                    viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x + objectWidth, screenBounds.x * -1 - objectWidth);
+                    viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y + objectHeight,
+                        screenBounds.y * -1 - objectHeight);
+                    break;
+                case MainCameraType.Orthographic:
+                    viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
+                    viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + objectHeight + lowerBound,
+                        screenBounds.y - objectHeight);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            return viewPos;
+        }
+
+        public void SetBound(float _lowerBound)
+        {
+            lowerBound = _lowerBound;
+        }
     }
 }

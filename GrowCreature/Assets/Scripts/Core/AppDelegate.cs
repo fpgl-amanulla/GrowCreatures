@@ -13,6 +13,6 @@ namespace Core
             return instance;
         }
 
-        public MergeObjectSetSO selectedMergeObjectSo { get; set; }
+        public MergeObjectSetSO SelectedMergeObjectSo { get; set; }
     }
 }
