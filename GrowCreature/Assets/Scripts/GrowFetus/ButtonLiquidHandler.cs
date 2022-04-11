@@ -5,10 +5,10 @@ namespace GrowFetus
 {
     public enum LiquidType
     {
-        Cute,
-        Love,
-        Strength,
-        Smart
+        Cute = 1,
+        Love = 2,
+        Strength = 3,
+        Smart = 4
     }
 
     public class ButtonLiquidHandler : MonoBehaviour

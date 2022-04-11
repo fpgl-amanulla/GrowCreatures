@@ -20,7 +20,7 @@ public class MyProductData
 public class SaveManager
 {
     public static SaveManager GetInstance() => new SaveManager();
-    
+
     public static readonly string myProductFileName = "MyProductData";
 
     public static readonly List<Vector3> productPositionList = new List<Vector3>()
@@ -30,7 +30,13 @@ public class SaveManager
         new Vector3(-7.92f, 2.75f, 6.73f),
     };
 
-    private void Start()
+    public void SaveFormula(string formula)
     {
+        GameData gameData = LoadGameData();
+        gameData.selectedFormula = formula;
+        CustomSave.SaveData(gameData, myProductFileName);
     }
+
+    public GameData LoadGameData() =>
+        CustomSave.LoadData<GameData>(SaveManager.myProductFileName) ?? GameData.CreateInstance();
 }
