@@ -11,7 +11,6 @@ namespace Merge
     [Serializable]
     public class MergeObjectInfo
     {
-        public int productId;
         public int mergeObjState;
 
         [ShowAssetPreview(32, 32)] [FormerlySerializedAs("fetusPrefab")]
@@ -23,6 +22,7 @@ namespace Merge
     [CreateAssetMenu(fileName = "MergeObjectSet", menuName = "MergeObject/Create MergeObjectSet", order = 0)]
     public class MergeObjectSetSO : ScriptableObject
     {
+        public string productId;
         [FormerlySerializedAs("AllFetusInfo")]
         public List<MergeObjectInfo> AllMergeObjInfo = new List<MergeObjectInfo>();
 

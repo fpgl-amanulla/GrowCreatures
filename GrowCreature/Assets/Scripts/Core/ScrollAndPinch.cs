@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Core
 {
-    internal class ScrollAndPinch : MonoBehaviour
+    public class ScrollAndPinch : MonoBehaviour
     {
 #if UNITY_IOS || UNITY_ANDROID
         public Camera Camera;
@@ -18,6 +18,7 @@ namespace Core
 
         [SerializeField] private Vector2 horizontalBound;
         [SerializeField] private Vector2 verticalBound;
+        [SerializeField] private bool _stopMovement = false;
 
         private void Awake()
         {
@@ -27,6 +28,8 @@ namespace Core
 
         private void Update()
         {
+            if (_stopMovement) return;
+
             //Update Plane
             if (Input.touchCount >= 1)
                 Plane.SetNormalAndPosition(transform.up, transform.position);
@@ -67,7 +70,7 @@ namespace Core
             // }
 
             //Set Bound
-            
+
             var camPos = Camera.transform.position;
             camPos.x = Mathf.Clamp(camPos.x, horizontalBound.x, horizontalBound.y);
             camPos.z = Mathf.Clamp(camPos.z, verticalBound.x, verticalBound.y);
@@ -105,5 +108,8 @@ namespace Core
             Gizmos.DrawLine(transform.position, transform.position + transform.up);
         }
 #endif
+        public void PauseScroll() => _stopMovement = true;
+
+        public void StartScroll() => _stopMovement = false;
     }
 }
