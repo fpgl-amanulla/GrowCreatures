@@ -101,13 +101,15 @@ namespace Merge
             {
                 GameObject mergeObjIns = mergeObjectSetSo.GetMergeObjPrefab(i, false);
                 //fetus.GetComponent<MergeObject>().dragEnabled = false;
-                mergeObjIns.transform.SetParent(finalProductHolder);
                 finalProductHolder.gameObject.SetActive(true);
                 mergeObjIns.transform.position = Vector3.zero;
 
                 if (i == maxMergeObjState)
                 {
+                    mergeObjIns.transform.SetParent(finalProductHolder);
+                    mergeObjIns.transform.localScale = Vector3.one;
                     panelGrowComplete.SetActive(true);
+                    cfx_firework_trail.gameObject.SetActive(true);
                     mergeObjIns.transform.rotation = Quaternion.Euler(0, 150, 0);
                     yield break;
                 }
@@ -121,6 +123,8 @@ namespace Merge
         {
             "Nice", "Amazing", "Awesome", "Good", "Fabulous"
         };
+
+        [SerializeField] private ParticleSystem cfx_firework_trail;
 
         private void ShowMergePopUpText(Component parent)
         {

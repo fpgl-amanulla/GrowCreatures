@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Core;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.Events;
 
 [Serializable]
 public class MyProductData
@@ -19,7 +19,8 @@ public class MyProductData
 
 public class SaveManager
 {
-    public static SaveManager GetInstance() => new SaveManager();
+    private static readonly SaveManager Instance = null;
+    public static SaveManager GetInstance() => Instance ?? new SaveManager();
 
     public static readonly string myProductFileName = "MyProductData";
 
@@ -36,6 +37,8 @@ public class SaveManager
         gameData.selectedFormula = formula;
         CustomSave.SaveData(gameData, myProductFileName);
     }
+
+    public string GetSaveFormula() => LoadGameData().selectedFormula;
 
     public GameData LoadGameData() =>
         CustomSave.LoadData<GameData>(SaveManager.myProductFileName) ?? GameData.CreateInstance();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Core;
 using Merge;
 using NaughtyAttributes;
+using UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,7 @@ namespace GrowFetus
 {
     public class LiquidContainerController : MonoBehaviour
     {
+        private static readonly int FillAmount = Shader.PropertyToID("_FillAmount");
         public Transform baseContainer;
         public LiquidDummy liquidDummyPrefab;
 
@@ -21,11 +23,11 @@ namespace GrowFetus
         [Foldout("UI Components")] public Button btnGrowCell;
         [Foldout("UI Components")] public GameObject formulaButtonHolder;
 
-        private bool startPouring = false;
-        private static readonly int FillAmount = Shader.PropertyToID("_FillAmount");
-
         [HorizontalLine(color: EColor.Blue)] [Space(20)]
         public ParticleSystem cfx_magical_source;
+
+        public ParticleSystem cfx_magical_Aura_source;
+
 
         [HorizontalLine(color: EColor.Blue)] public ParticleSystem leftPourEffect;
         public ParticleSystem rightPourEffect;
@@ -35,10 +37,15 @@ namespace GrowFetus
         [HorizontalLine(color: EColor.Blue)] [Expandable]
         public MergeObjectSetListSO mergeObjectSetListSO;
 
+
+        [HorizontalLine] [SerializeField] private GameObject jarLimit;
+
+
         private List<LiquidDummy> allLiquidDummy = new List<LiquidDummy>();
         private LiquidDummy _liquidDummy;
         private Renderer _liquidRenderer;
         private float fillAmount = 1.25f;
+        private bool startPouring = false;
 
         private static readonly int TopColor = Shader.PropertyToID("_TopColor");
         public UnityAction OnPourComplete;
@@ -81,11 +88,18 @@ namespace GrowFetus
             if (!(fillAmount <= 0)) return;
 
             Debug.Log("Filled");
+
+            bool isCorrect = FormulaChecker.Instance.CheckFormula();
+            Debug.Log(isCorrect);
+            if (!isCorrect) return;
+
+            jarLimit.SetActive(false);
             //Select MergeObjectSO
             AppDelegate.GetInstance().SelectedMergeObjectSo = mergeObjectSetListSO.GetRandomMergeObjectSO();
 
             OnPourComplete?.Invoke();
             cfx_magical_source.gameObject.SetActive(true);
+            cfx_magical_Aura_source.gameObject.SetActive(true);
             StartCoroutine(GenerateFetus());
         }
 
