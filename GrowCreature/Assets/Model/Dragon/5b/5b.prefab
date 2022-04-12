@@ -1649,6 +1649,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6925286289594910999}
+  - component: {fileID: 1471131261479275209}
   m_Layer: 0
   m_Name: EatCollider
   m_TagString: PlayerShark
@@ -1664,12 +1665,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8407283805927874045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.32, z: -0.3}
+  m_LocalPosition: {x: 0, y: 3.79, z: -0.3}
   m_LocalScale: {x: 1, y: 1.2349999, z: 1}
   m_Children: []
   m_Father: {fileID: 3240043901409879201}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1471131261479275209
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8407283805927874045}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.94
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0.3, y: 1.15, z: 1.15}
 --- !u!1 &8737442043150332200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,6 +1694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5571990509798902863}
+  - component: {fileID: 6948763009916419091}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -1694,12 +1710,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8737442043150332200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.01, z: 0}
+  m_LocalPosition: {x: 2.69, y: 3.01, z: -1.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3240043901409879201}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &6948763009916419091
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8737442043150332200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.57
+  m_Height: 5
+  m_Direction: 2
+  m_Center: {x: -2.3, y: 0, z: 0}
 --- !u!1 &8746571116282059810
 GameObject:
   m_ObjectHideFlags: 0

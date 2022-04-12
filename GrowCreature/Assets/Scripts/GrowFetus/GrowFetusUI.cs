@@ -4,6 +4,7 @@ using NaughtyAttributes;
 using UI;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace GrowFetus
@@ -11,6 +12,7 @@ namespace GrowFetus
     public class GrowFetusUI : MonoBehaviour
     {
         public Button btnFormula;
+        public Button btnIsland;
         public GameObject panelFormula;
         public Transform formulaBgTr;
 
@@ -20,6 +22,7 @@ namespace GrowFetus
         {
             _selectedFormulaItem.AssignItem(SaveManager.GetInstance().GetSaveFormula());
             btnFormula.onClick.AddListener(OpenFormulaPanel);
+            btnIsland.onClick.AddListener(() => { SceneManager.LoadScene("Island"); });
         }
 
         private void OpenFormulaPanel()

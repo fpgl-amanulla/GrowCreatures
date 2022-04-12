@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Core;
@@ -14,6 +15,7 @@ namespace GrowFetus
     public class LiquidContainerController : MonoBehaviour
     {
         private static readonly int FillAmount = Shader.PropertyToID("_FillAmount");
+        public FormulaChecker formulaChecker;
         public Transform baseContainer;
         public LiquidDummy liquidDummyPrefab;
 
@@ -46,6 +48,7 @@ namespace GrowFetus
         private Renderer _liquidRenderer;
         private float fillAmount = 1.25f;
         private bool startPouring = false;
+        [HideInInspector] public bool isJarFilled = false;
 
         private static readonly int TopColor = Shader.PropertyToID("_TopColor");
         public UnityAction OnPourComplete;
@@ -82,22 +85,29 @@ namespace GrowFetus
         {
             if (!startPouring) return;
             if (fillAmount < 0) return;
+            if (isJarFilled) return;
             //Update value
             fillAmount -= .01f;
             _liquidRenderer.material.SetFloat(FillAmount, fillAmount);
             if (!(fillAmount <= 0)) return;
 
-            Debug.Log("Filled");
-
+            //Debug.Log("Filled");
+            isJarFilled = true;
+            OnPourComplete?.Invoke();
             bool isCorrect = FormulaChecker.Instance.CheckFormula();
-            Debug.Log(isCorrect);
-            if (!isCorrect) return;
+            //Debug.Log(isCorrect);
+            if (!isCorrect)
+            {
+                StartCoroutine(ResetContainer());
+
+                return;
+            }
 
             jarLimit.SetActive(false);
             //Select MergeObjectSO
-            AppDelegate.GetInstance().SelectedMergeObjectSo = mergeObjectSetListSO.GetRandomMergeObjectSO();
+            string productId = SaveManager.GetInstance().GetSaveFormulaProductId();
+            AppDelegate.GetInstance().SelectedMergeObjectSo = mergeObjectSetListSO.GetMergeObjectSetListSo(productId);
 
-            OnPourComplete?.Invoke();
             cfx_magical_source.gameObject.SetActive(true);
             cfx_magical_Aura_source.gameObject.SetActive(true);
             StartCoroutine(GenerateFetus());
@@ -124,6 +134,22 @@ namespace GrowFetus
         private void DeactivateAllLiquidDummy()
         {
             for (int i = 0; i < allLiquidDummy.Count; i++) allLiquidDummy[i].gameObject.SetActive(false);
+        }
+
+        private IEnumerator ResetContainer()
+        {
+            yield return new WaitForSeconds(1.0f);
+
+            for (int i = 0; i < allLiquidDummy.Count; i++)
+            {
+                Destroy(allLiquidDummy[i].gameObject);
+            }
+
+            allLiquidDummy.Clear();
+
+            formulaChecker.ResetChecker();
+            fillAmount = 1.25f;
+            isJarFilled = false;
         }
 
         public void StartPourLiquid(ConicalFlask conicalFlask)

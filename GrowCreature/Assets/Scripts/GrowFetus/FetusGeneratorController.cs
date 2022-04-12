@@ -34,6 +34,8 @@ namespace GrowFetus
 
         private void OnButtonPointerChanges(ButtonLiquidHandler buttonLiquidHandler, bool isPointerDown)
         {
+            if (liquidContainerController.isJarFilled) return;
+
             _conicalFlask = GetConicalFlask(buttonLiquidHandler);
             if (isPointerDown)
             {

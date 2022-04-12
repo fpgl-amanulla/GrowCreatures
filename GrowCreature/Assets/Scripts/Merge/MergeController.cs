@@ -42,13 +42,7 @@ namespace Merge
 
         private void Start()
         {
-            if (Application.isEditor)
-            {
-                if (assignEditorSO == false)
-                    mergeObjectSetSo = AppDelegate.GetInstance().SelectedMergeObjectSo;
-            }
-            else
-                mergeObjectSetSo = AppDelegate.GetInstance().SelectedMergeObjectSo;
+            mergeObjectSetSo = AppDelegate.GetInstance().SelectedMergeObjectSo;
 
             mergeObjectSetSo.GetMergeObjPrefab(0);
             maxMergeObjState = mergeObjectSetSo.AllMergeObjInfo.Count - 1;

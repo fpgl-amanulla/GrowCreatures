@@ -1,5 +1,6 @@
 using System;
-using System.Collections.Generic;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 namespace UI
@@ -9,6 +10,7 @@ namespace UI
         public static FormulaChecker Instance;
 
         [SerializeField] private string formula;
+        public GameObject imgWrongFormula;
 
         private int updateCount = 0;
 
@@ -22,7 +24,7 @@ namespace UI
 
         public void UpdateFormula(int value)
         {
-            Debug.Log(value);
+            //Debug.Log(value);
 
             if (formula.Contains(value.ToString())) return;
 
@@ -38,7 +40,19 @@ namespace UI
         {
             string selectedFormula = SaveManager.GetInstance().GetSaveFormula();
             formula = formula.Remove(formula.Length - 1);
-            return selectedFormula == formula;
+            if (selectedFormula == formula) return true;
+            imgWrongFormula.SetActive(true);
+            imgWrongFormula.transform.DOScaleX(4, .25f);
+            return false;
+        }
+
+        public void ResetChecker()
+        {
+            imgWrongFormula.SetActive(false);
+            imgWrongFormula.transform.DOScaleX(0, .25f);
+            for (int i = 0; i < formulaComponentList.Count; i++) formulaComponentList[i].gameObject.SetActive(false);
+            formula = "";
+            updateCount = 0;
         }
     }
 }

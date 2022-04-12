@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using GrowFetus;
@@ -26,8 +25,12 @@ namespace UI
 
         public void AssignItem(string formula)
         {
-            List<string> componentList = formula.Split(',').ToList();
-            for (int i = 0; i < formulaComponentList.Count; i++) formulaComponentList[i].gameObject.SetActive(false);
+            List<string> componentList = formula.Split(';')[0].Split(',').ToList();
+            for (int i = 0; i < formulaComponentList.Count; i++)
+            {
+                formulaComponentList[i].gameObject.SetActive(false);
+                formulaComponentList[i].transform.GetChild(0).gameObject.SetActive(true);
+            }
 
             for (int i = 0; i < componentList.Count; i++)
             {
