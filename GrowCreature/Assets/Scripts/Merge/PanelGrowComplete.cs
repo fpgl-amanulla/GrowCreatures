@@ -21,10 +21,10 @@ namespace Merge
 
             string productId = AppDelegate.GetInstance().SelectedMergeObjectSo.productId;
 
-            GameData gameData = CustomSave.LoadData<GameData>(SaveManager.myProductFileName) ??
+            GameData gameData = JsonSave.LoadData<GameData>(SaveManager.myProductFileName) ??
                                 GameData.CreateInstance();
             gameData.myProductDataList.Add(new MyProductData(productId, gameData.myProductDataList.Count));
-            CustomSave.SaveData(gameData, SaveManager.myProductFileName);
+            JsonSave.SaveData(gameData, SaveManager.myProductFileName);
 
             SceneManager.LoadScene("Island");
         }

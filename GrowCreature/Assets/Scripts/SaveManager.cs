@@ -39,7 +39,7 @@ public class SaveManager
     {
         GameData gameData = LoadGameData();
         gameData.selectedFormula = formula;
-        CustomSave.SaveData(gameData, myProductFileName);
+        JsonSave.SaveData(gameData, myProductFileName);
     }
 
     public string GetSaveFormulaOnly() => LoadGameData().selectedFormula.Split(';')[0];
@@ -48,12 +48,12 @@ public class SaveManager
 
     private GameData LoadGameData()
     {
-        GameData gameData = CustomSave.LoadData<GameData>(SaveManager.myProductFileName) ?? GameData.CreateInstance();
+        GameData gameData = JsonSave.LoadData<GameData>(SaveManager.myProductFileName) ?? GameData.CreateInstance();
         if (gameData.selectedFormula == null)
         {
             // Default formula
             gameData.selectedFormula = Formula.FormulaList[0];
-            CustomSave.SaveData(gameData, myProductFileName);
+            JsonSave.SaveData(gameData, myProductFileName);
         }
 
         return gameData;

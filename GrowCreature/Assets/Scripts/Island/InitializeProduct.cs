@@ -14,7 +14,7 @@ namespace Island
 
         private void Start()
         {
-            _gameData = CustomSave.LoadData<GameData>(SaveManager.myProductFileName);
+            _gameData = JsonSave.LoadData<GameData>(SaveManager.myProductFileName);
             List<MyProductData> myProductDataList = _gameData.myProductDataList;
             //Debug.Log(myProductDataList.Count);
             for (int i = 0; i < myProductDataList.Count; i++)

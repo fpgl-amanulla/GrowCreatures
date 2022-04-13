@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core
 {
-    public abstract class CustomSave
+    public abstract class JsonSave
     {
         public static void SaveData<T>(T data, string fileName)
         {
