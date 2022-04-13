@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: MergeObjectSetList
   m_EditorClassIdentifier: 
   AllMergeObjectSO:
+  - {fileID: 11400000, guid: 9e4ea2e9919f94401871626c388416f1, type: 2}
+  - {fileID: 11400000, guid: 4b74f958a0bd14e6987c4e3edc7f314c, type: 2}
+  - {fileID: 11400000, guid: eecb4ce8536284a85850755f04a15b70, type: 2}
+  - {fileID: 11400000, guid: 7d7cab9e38f15438fae284684770198c, type: 2}
   - {fileID: 11400000, guid: 5c48ee8dbc0ff4f86b7e247a6fa538cd, type: 2}
   - {fileID: 11400000, guid: 74046eb12479540edba0c550051d86cc, type: 2}
-  - {fileID: 11400000, guid: 9e4ea2e9919f94401871626c388416f1, type: 2}

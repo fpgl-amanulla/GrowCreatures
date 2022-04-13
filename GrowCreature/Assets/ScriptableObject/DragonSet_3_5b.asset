@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DragonSet_3_5b
   m_EditorClassIdentifier: 
   productId: 2803
+  productIcon: {fileID: 21300000, guid: 8e5d51b14edf1495485b1cc7c0b23e47, type: 3}
   AllMergeObjInfo:
   - mergeObjState: 0
     mergeObjPrefab: {fileID: 6761662595231065785, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}

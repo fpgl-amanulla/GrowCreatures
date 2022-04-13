@@ -226,8 +226,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 707de7c8814014a4cb77986dc597af46, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 707de7c8814014a4cb77986dc597af46, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assignEditorSO: 1
-  mergeObjectSetSo: {fileID: 11400000, guid: 5c48ee8dbc0ff4f86b7e247a6fa538cd, type: 2}
+  mergeObjectSetSo: {fileID: 11400000, guid: 4b74f958a0bd14e6987c4e3edc7f314c, type: 2}
   btnGenerate: {fileID: 219266045}
   panelGrowComplete: {fileID: 1481749294}
   ObjectHolder: {fileID: 1800290807}

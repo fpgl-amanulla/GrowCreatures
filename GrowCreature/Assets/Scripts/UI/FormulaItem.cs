@@ -5,7 +5,6 @@ namespace UI
 {
     public class FormulaItem : MonoBehaviour
     {
-        public Image imgFinalProduct;
         public Button btnFormula;
         public Image formulaItemBg;
 

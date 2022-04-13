@@ -8,7 +8,7 @@ namespace Core
         public static void SaveData<T>(T data, string fileName)
         {
             string dataPath = Application.persistentDataPath + "/" + fileName;
-            Debug.Log(dataPath);
+            //Debug.Log(dataPath);
             string jsonString = JsonUtility.ToJson(data);
             File.WriteAllText(dataPath, jsonString);
         }

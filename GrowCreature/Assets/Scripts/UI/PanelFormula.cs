@@ -35,7 +35,7 @@ namespace UI
             {
                 FormulaItem formulaItem = Instantiate(formulaItemPrefab, content);
                 formulaItem.AssignItem(Formula.FormulaList[i], this);
-                if (Formula.FormulaList[i].Split(',')[0] == SaveManager.GetInstance().GetSaveFormula())
+                if (Formula.FormulaList[i] == SaveManager.GetInstance().GetSaveFormula())
                 {
                     currentSelectedItem = formulaItem;
                 }

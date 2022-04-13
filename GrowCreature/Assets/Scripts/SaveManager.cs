@@ -42,8 +42,9 @@ public class SaveManager
         CustomSave.SaveData(gameData, myProductFileName);
     }
 
-    public string GetSaveFormula() => LoadGameData().selectedFormula.Split(';')[0];
+    public string GetSaveFormulaOnly() => LoadGameData().selectedFormula.Split(';')[0];
     public string GetSaveFormulaProductId() => LoadGameData().selectedFormula.Split(';')[1];
+    public string GetSaveFormula() => LoadGameData().selectedFormula;
 
     private GameData LoadGameData()
     {

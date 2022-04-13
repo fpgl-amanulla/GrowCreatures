@@ -16,7 +16,7 @@ namespace Island
         {
             _gameData = CustomSave.LoadData<GameData>(SaveManager.myProductFileName);
             List<MyProductData> myProductDataList = _gameData.myProductDataList;
-            Debug.Log(myProductDataList.Count);
+            //Debug.Log(myProductDataList.Count);
             for (int i = 0; i < myProductDataList.Count; i++)
             {
                 MergeObjectSetSO mergeObjectSetListSo =

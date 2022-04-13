@@ -38,7 +38,7 @@ namespace UI
 
         public bool CheckFormula()
         {
-            string selectedFormula = SaveManager.GetInstance().GetSaveFormula();
+            string selectedFormula = SaveManager.GetInstance().GetSaveFormulaOnly();
             formula = formula.Remove(formula.Length - 1);
             if (selectedFormula == formula) return true;
             imgWrongFormula.SetActive(true);

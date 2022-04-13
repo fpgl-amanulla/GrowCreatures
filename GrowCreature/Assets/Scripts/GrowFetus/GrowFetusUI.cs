@@ -1,8 +1,6 @@
-using System;
 using DG.Tweening;
 using NaughtyAttributes;
 using UI;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

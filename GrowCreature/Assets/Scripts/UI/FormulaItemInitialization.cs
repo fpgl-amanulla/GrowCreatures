@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GrowFetus;
+using Merge;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ namespace UI
 {
     public class FormulaItemInitialization : MonoBehaviour
     {
+        public MergeObjectSetListSO mergeObjectSetListSo;
+        public Image imgFinalProduct;
         public List<Image> formulaComponentList = new List<Image>();
 
         [Foldout("Component Sprite")] [SerializeField]
@@ -23,9 +26,12 @@ namespace UI
         [Foldout("Component Sprite")] [SerializeField]
         private Sprite _spriteSmart;
 
-        public void AssignItem(string formula)
+        public void AssignItem( string formula)
         {
             List<string> componentList = formula.Split(';')[0].Split(',').ToList();
+            string productId = formula.Split(';')[1];
+            imgFinalProduct.sprite = mergeObjectSetListSo.GetMergeObjectSetListSo(productId).productIcon;
+
             for (int i = 0; i < formulaComponentList.Count; i++)
             {
                 formulaComponentList[i].gameObject.SetActive(false);

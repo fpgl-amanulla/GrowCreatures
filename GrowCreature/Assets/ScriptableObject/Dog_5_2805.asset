@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0272522b3b3f4b95ae66a9eb14737a2e, type: 3}
-  m_Name: DragonSet_1_2803
+  m_Name: Dog_5_2805
   m_EditorClassIdentifier: 
-  productId: 2801
+  productId: 2805
+  productIcon: {fileID: 21300000, guid: c5fb90f52e4aa4858b00a24c4b4e6816, type: 3}
   AllMergeObjInfo:
   - mergeObjState: 0
     mergeObjPrefab: {fileID: 6761662595231065785, guid: 16434dfa98aa74a98982472d9322fad9, type: 3}
-    mainTexture2D: {fileID: 2800000, guid: f893359564e004fd3b653be3c4ac9250, type: 3}
+    mainTexture2D: {fileID: 2800000, guid: d66a0ce216e964326b5cac436c228832, type: 3}
   - mergeObjState: 1
     mergeObjPrefab: {fileID: 2035846966198362139, guid: a79ccc245142f4af39b570c165edf6b5, type: 3}
-    mainTexture2D: {fileID: 2800000, guid: 09ad293b6039740c28160d20524832b3, type: 3}
+    mainTexture2D: {fileID: 2800000, guid: a17aa688ab45241cf8dde61263a94ec5, type: 3}
   - mergeObjState: 2
     mergeObjPrefab: {fileID: 1745042591017657030, guid: fe3d1c1c17b0142f7adc2e0f109ed19b, type: 3}
-    mainTexture2D: {fileID: 2800000, guid: 3df955ae620fc4cba86f5dc6ed77f844, type: 3}
+    mainTexture2D: {fileID: 2800000, guid: 87845255726bb452e8e406b199a16a25, type: 3}
   - mergeObjState: 3
-    mergeObjPrefab: {fileID: 7634803634394978516, guid: 232f291a70d8b4468bdec77238cffdcf, type: 3}
-    mainTexture2D: {fileID: 2800000, guid: 47ec7c2b7ed0141d9ab31ef8543f4e10, type: 3}
+    mergeObjPrefab: {fileID: 7634803634394978516, guid: 197af8b186bc240b3a82b8913b8c602d, type: 3}
+    mainTexture2D: {fileID: 2800000, guid: 6f1637a14c0e647a989cd62a8ea175c0, type: 3}
   - mergeObjState: 4
-    mergeObjPrefab: {fileID: 361680815821867644, guid: 966ce2f10d52d40ebab1900eaf287635, type: 3}
-    mainTexture2D: {fileID: 2800000, guid: fa250aa93e1482d44814616c3feff82e, type: 3}
+    mergeObjPrefab: {fileID: 579712127236191158, guid: 307ebb42441b8634e9d046d71a6ed8df, type: 3}
+    mainTexture2D: {fileID: 2800000, guid: 30026f71f4c8f0c49ac0c5244641b99e, type: 3}

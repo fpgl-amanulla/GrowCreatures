@@ -859,7 +859,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1384615235}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1411,7 +1411,7 @@ RectTransform:
   m_Children:
   - {fileID: 1838065843}
   m_Father: {fileID: 1384615235}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1482,8 +1482,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 707de7c8814014a4cb77986dc597af46, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2532,6 +2532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617cc9fda95f438299526ed83f845f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mergeObjectSetListSo: {fileID: 0}
+  imgFinalProduct: {fileID: 0}
   formulaComponentList:
   - {fileID: 350556238}
   - {fileID: 1900418519}
@@ -3274,9 +3276,9 @@ RectTransform:
   - {fileID: 277351284}
   - {fileID: 124781942}
   - {fileID: 1636046348}
+  - {fileID: 690664138}
   - {fileID: 385112157}
   - {fileID: 122858722}
-  - {fileID: 690664138}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4678,6 +4680,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8501463131893180114, guid: 1bab5c27d99074207aac270ff5bcaf16, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501463131893180114, guid: 1bab5c27d99074207aac270ff5bcaf16, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501463131893180114, guid: 1bab5c27d99074207aac270ff5bcaf16, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501463131893180114, guid: 1bab5c27d99074207aac270ff5bcaf16, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5389,7 +5403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1119518143003282920, guid: 01b3ddc2ad1544b1fba71e85e4cf9848, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1119518143003282920, guid: 01b3ddc2ad1544b1fba71e85e4cf9848, type: 3}
       propertyPath: m_AnchorMax.x

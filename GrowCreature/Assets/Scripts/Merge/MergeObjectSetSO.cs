@@ -23,6 +23,8 @@ namespace Merge
     public class MergeObjectSetSO : ScriptableObject
     {
         public string productId;
+        [ShowAssetPreview(32, 32)] public Sprite productIcon;
+
         [FormerlySerializedAs("AllFetusInfo")]
         public List<MergeObjectInfo> AllMergeObjInfo = new List<MergeObjectInfo>();
 
