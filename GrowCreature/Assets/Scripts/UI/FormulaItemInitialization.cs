@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Core;
 using GrowFetus;
 using Merge;
 using NaughtyAttributes;
@@ -26,11 +27,22 @@ namespace UI
         [Foldout("Component Sprite")] [SerializeField]
         private Sprite _spriteSmart;
 
-        public void AssignItem( string formula)
+        private void Start()
+        {
+            ActionManager.Instance.OnFormulaAddition += AssignItem;
+        }
+
+        private void OnDisable()
+        {
+            if (ActionManager.Instance) ActionManager.Instance.OnFormulaAddition -= AssignItem;
+        }
+
+        public void AssignItem(string formula)
         {
             List<string> componentList = formula.Split(';')[0].Split(',').ToList();
             string productId = formula.Split(';')[1];
-            imgFinalProduct.sprite = mergeObjectSetListSo.GetMergeObjectSetListSo(productId).productIcon;
+            if (imgFinalProduct)
+                imgFinalProduct.sprite = mergeObjectSetListSo.GetMergeObjectSetListSo(productId).productIcon;
 
             for (int i = 0; i < formulaComponentList.Count; i++)
             {
@@ -49,7 +61,7 @@ namespace UI
             }
         }
 
-        protected void SetLiQuidSprite(int liquidType, int i)
+        private void SetLiQuidSprite(int liquidType, int i)
         {
             switch (liquidType)
             {

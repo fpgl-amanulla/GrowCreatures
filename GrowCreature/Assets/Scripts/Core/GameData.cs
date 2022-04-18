@@ -9,8 +9,10 @@ namespace Core
     {
         public List<MyProductData> myProductDataList = new List<MyProductData>();
 
+        public List<string> myFormulaList = new List<string>();
+
         public string selectedFormula;
-        
+
         public static GameData CreateInstance()
         {
             return new GameData();

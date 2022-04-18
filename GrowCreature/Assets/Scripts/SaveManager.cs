@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Core;
 using UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public class MyProductData
@@ -22,7 +23,7 @@ public class SaveManager
     private static readonly SaveManager Instance = null;
     public static SaveManager GetInstance() => Instance ?? new SaveManager();
 
-    public static readonly string myProductFileName = "GameData";
+    public static readonly string gameDataFileName = "GameData";
 
     public static readonly List<Vector3> productPositionList = new List<Vector3>()
     {
@@ -35,25 +36,36 @@ public class SaveManager
         new Vector3(0, 2.75f, -4.65f)
     };
 
-    public void SaveFormula(string formula)
+    public void SaveSelectedFormula(string formula)
     {
         GameData gameData = LoadGameData();
         gameData.selectedFormula = formula;
-        JsonSave.SaveData(gameData, myProductFileName);
+        JsonSave.SaveData(gameData, gameDataFileName);
+    }
+
+    public void AddNewFormula(string formula)
+    {
+        GameData gameData = LoadGameData();
+        gameData.selectedFormula = formula;
+        gameData.myFormulaList.Add(formula);
+        JsonSave.SaveData(gameData, gameDataFileName);
+        ActionManager.Instance.OnFormulaAddition?.Invoke(formula);
     }
 
     public string GetSaveFormulaOnly() => LoadGameData().selectedFormula.Split(';')[0];
     public string GetSaveFormulaProductId() => LoadGameData().selectedFormula.Split(';')[1];
     public string GetSaveFormula() => LoadGameData().selectedFormula;
 
-    private GameData LoadGameData()
+    public GameData LoadGameData()
     {
-        GameData gameData = JsonSave.LoadData<GameData>(SaveManager.myProductFileName) ?? GameData.CreateInstance();
+        GameData gameData = JsonSave.LoadData<GameData>(SaveManager.gameDataFileName) ?? new GameData();
         if (gameData.selectedFormula == null)
         {
             // Default formula
+
+            gameData.myFormulaList.Add(Formula.FormulaList[0]);
             gameData.selectedFormula = Formula.FormulaList[0];
-            JsonSave.SaveData(gameData, myProductFileName);
+            JsonSave.SaveData(gameData, gameDataFileName);
         }
 
         return gameData;

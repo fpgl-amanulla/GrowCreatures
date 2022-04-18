@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Core;
 
 namespace UI
 {
@@ -13,5 +15,25 @@ namespace UI
             "2,1,3;2805",
             "3,2,1,4;2037"
         };
+
+        public static string GetNextFormula()
+        {
+            List<string> myFormulaList = SaveManager.GetInstance().LoadGameData().myFormulaList;
+            return FormulaList[myFormulaList.Count];
+        }
+
+        public static List<string> GetMyFormulaList() => SaveManager.GetInstance().LoadGameData().myFormulaList;
+
+        public static bool IsMyFormula(string formula)
+        {
+            GameData gameData = SaveManager.GetInstance().LoadGameData();
+            for (int i = 0; i < gameData.myFormulaList.Count; i++)
+            {
+                if (gameData.myFormulaList[i] == formula)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

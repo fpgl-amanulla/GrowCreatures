@@ -23,7 +23,7 @@ namespace UI
             //Select Formula
             _panelFormula.SelectItemBG(this);
             _panelFormula.selectedFormulaItem.AssignItem(_formula);
-            SaveManager.GetInstance().SaveFormula(_formula);
+            SaveManager.GetInstance().SaveSelectedFormula(_formula);
         }
 
         public void AssignItem(string formula, PanelFormula panelFormula)

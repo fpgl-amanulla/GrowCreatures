@@ -1,14 +1,20 @@
+using System;
 using System.Collections.Generic;
+using Core;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace UI
 {
     public class PanelFormula : MonoBehaviour
     {
+        [ShowAssetPreview(32, 32)] public GameObject matchEmPrefab;
         public Transform content;
         public FormulaItem formulaItemPrefab;
+        public Button btnNewFormula;
+        public Button btnGrow;
         public Button btnCross;
 
         public FormulaItemInitialization selectedFormulaItem;
@@ -23,19 +29,42 @@ namespace UI
 
         private void Start()
         {
+            ActionManager.Instance.OnFormulaAddition += PopulateItem;
+        }
+
+        private void OnDestroy()
+        {
+            ActionManager.Instance.OnFormulaAddition -= PopulateItem;
+        }
+
+        private void OnEnable()
+        {
             btnCross.onClick.AddListener(() => { gameObject.SetActive(false); });
+            btnGrow.onClick.AddListener(() => { gameObject.SetActive(false); });
+            btnNewFormula.onClick.AddListener(CreateNewFormulaCallBack);
 
             PopulateItem();
         }
 
-        private void PopulateItem()
+        private void PopulateItem(string formula = null)
         {
+            if (_formulaItemList.Count > 0)
+            {
+                for (int i = 0; i < _formulaItemList.Count; i++)
+                {
+                    Destroy(_formulaItemList[i].gameObject);
+                }
+            }
+
+            _formulaItemList.Clear();
+
             FormulaItem currentSelectedItem = null;
-            for (int i = 0; i < Formula.FormulaList.Count; i++)
+            List<string> myFormulaList = Formula.GetMyFormulaList();
+            for (int i = 0; i < myFormulaList.Count; i++)
             {
                 FormulaItem formulaItem = Instantiate(formulaItemPrefab, content);
-                formulaItem.AssignItem(Formula.FormulaList[i], this);
-                if (Formula.FormulaList[i] == SaveManager.GetInstance().GetSaveFormula())
+                formulaItem.AssignItem(myFormulaList[i], this);
+                if (myFormulaList[i] == SaveManager.GetInstance().GetSaveFormula())
                 {
                     currentSelectedItem = formulaItem;
                 }
@@ -54,6 +83,12 @@ namespace UI
             }
 
             if (formulaItem != null) formulaItem.formulaItemBg.sprite = _spriteItemSelected;
+        }
+
+        private void CreateNewFormulaCallBack()
+        {
+            GameObject matchEm = Instantiate(matchEmPrefab, this.transform.root);
+            //this.gameObject.SetActive(false);
         }
     }
 }
