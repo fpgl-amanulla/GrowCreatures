@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Core;
 using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace UI
@@ -34,7 +32,7 @@ namespace UI
 
         private void OnDestroy()
         {
-            ActionManager.Instance.OnFormulaAddition -= PopulateItem;
+            if (ActionManager.Instance) ActionManager.Instance.OnFormulaAddition -= PopulateItem;
         }
 
         private void OnEnable()

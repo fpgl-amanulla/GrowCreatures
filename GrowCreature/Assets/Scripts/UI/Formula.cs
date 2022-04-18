@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Core;
 
 namespace UI
@@ -19,7 +18,7 @@ namespace UI
         public static string GetNextFormula()
         {
             List<string> myFormulaList = SaveManager.GetInstance().LoadGameData().myFormulaList;
-            return FormulaList[myFormulaList.Count];
+            return myFormulaList.Count >= FormulaList.Count ? null : FormulaList[myFormulaList.Count];
         }
 
         public static List<string> GetMyFormulaList() => SaveManager.GetInstance().LoadGameData().myFormulaList;

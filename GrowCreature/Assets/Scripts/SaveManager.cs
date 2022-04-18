@@ -59,7 +59,7 @@ public class SaveManager
     public GameData LoadGameData()
     {
         GameData gameData = JsonSave.LoadData<GameData>(SaveManager.gameDataFileName) ?? new GameData();
-        if (gameData.selectedFormula == null)
+        if (gameData.myFormulaList.Count == 0)
         {
             // Default formula
 
